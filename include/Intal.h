@@ -32,8 +32,8 @@ class Intal {
 		string division(string num1, string num2);
 		string expo(string num1, string num2);
 		bool equals(Intal &num1, Intal &num2);
-		bool less(Intal num1, Intal num2);
-		bool greater(Intal num1, Intal num2);
+		bool less(Intal &num1, Intal &num2);
+		bool greater(Intal &num1, Intal &num2);
 	public:
 		Intal();
 		Intal(string num);
@@ -41,13 +41,13 @@ class Intal {
 		const string& getInteger();
 		void setSign(bool s);
 		Intal absolute();
-		Intal operator + (Intal num);
-		Intal operator - (Intal num);
-		Intal operator * (Intal num);
-		Intal operator ^ (Intal num);
-		Intal operator / (Intal num);
+		Intal operator + (Intal &num);
+		Intal operator - (Intal &num);
+		Intal operator * (Intal &num);
+		Intal operator ^ (Intal &num);
+		Intal operator / (Intal &num);
 		bool operator > (Intal num2);
-		bool operator < (Intal num2);
+		bool operator < (Intal &num2);
 		bool operator == (Intal &num2);
 		friend ostream& operator << (ostream& os, const Intal& dt);
 		void setInteger(string s);

@@ -176,7 +176,7 @@ string Intal::expo(string num1, string num2) {
 	return m;
 }
 
-bool Intal::less(Intal num1, Intal num2) {
+bool Intal::less(Intal &num1, Intal &num2) {
 	bool sign1 = num1.getSign();
 	bool sign2 = num2.getSign();
 
@@ -205,7 +205,7 @@ bool Intal::equals(Intal &num1, Intal &num2) {
 	return num1.getInteger() == num2.getInteger() && num1.getSign() == num2.getSign();
 }
 
-bool Intal::greater(Intal num1, Intal num2) {
+bool Intal::greater(Intal &num1, Intal &num2) {
 	return ! equals(num1, num2) && ! less(num1, num2);
 }
 
@@ -245,7 +245,7 @@ void Intal::setInteger(string s) {
 Intal Intal::absolute() {
 	return Intal( getInteger() );
 }
-Intal Intal::operator + (Intal number) {
+Intal Intal::operator + (Intal &number) {
 
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	Intal sum;
@@ -273,14 +273,14 @@ Intal Intal::operator + (Intal number) {
 	return sum;
 }
 
-Intal Intal::operator - (Intal num2) {
+Intal Intal::operator - (Intal &num2) {
 
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	num2.setSign( ! num2.getSign() );
 	return (*this) + num2;
 }
 
-Intal Intal::operator * (Intal num2) {
+Intal Intal::operator * (Intal &num2) {
 
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	Intal mul;
@@ -295,7 +295,7 @@ Intal Intal::operator * (Intal num2) {
 }
 
 #if 1 //Boost
-Intal Intal::operator / (Intal num2) {
+Intal Intal::operator / (Intal &num2) {
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	Intal mul;
 
@@ -310,7 +310,7 @@ Intal Intal::operator / (Intal num2) {
 #endif
 
 #if 0 // Slow
-Intal Intal::operator / (Intal num2) {
+Intal Intal::operator / (Intal &num2) {
 
 	if(num2 == Intal("0")) {
 		cout << "Error: Divide by zero";
@@ -333,14 +333,14 @@ Intal Intal::operator / (Intal num2) {
 }
 #endif
 
-Intal Intal::operator ^ (Intal num2) {
+Intal Intal::operator ^ (Intal &num2) {
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	Intal res;
 	res.setInteger(expo(getInteger(), num2.getInteger()));
 	return res;
 }
 
-bool Intal::operator < (Intal num2) {
+bool Intal::operator < (Intal &num2) {
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	return less((*this) , num2);
 }
