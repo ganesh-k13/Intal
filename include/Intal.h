@@ -31,7 +31,7 @@ class Intal {
 		string multiply(string num1, string num2);
 		string division(string num1, string num2);
 		string expo(string num1, string num2);
-		bool equals(Intal num1, Intal num2);
+		bool equals(Intal &num1, Intal &num2);
 		bool less(Intal num1, Intal num2);
 		bool greater(Intal num1, Intal num2);
 	public:
@@ -48,7 +48,7 @@ class Intal {
 		Intal operator / (Intal num);
 		bool operator > (Intal num2);
 		bool operator < (Intal num2);
-		bool operator == (Intal num2);
+		bool operator == (Intal &num2);
 		friend ostream& operator << (ostream& os, const Intal& dt);
 		void setInteger(string s);
 		char getSignCharformat();

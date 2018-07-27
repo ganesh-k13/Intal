@@ -201,7 +201,7 @@ bool Intal::less(Intal num1, Intal num2) {
 	}
 }
 
-bool Intal::equals(Intal num1, Intal num2) {
+bool Intal::equals(Intal &num1, Intal &num2) {
 	return num1.getInteger() == num2.getInteger() && num1.getSign() == num2.getSign();
 }
 
@@ -350,7 +350,7 @@ bool Intal::operator > (Intal number) {
 	return greater((*this) , number);
 }
 
-bool Intal::operator == (Intal num2) {
+bool Intal::operator == (Intal &num2) {
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 	return equals((*this) , num2);
 }

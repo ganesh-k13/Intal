@@ -1,5 +1,5 @@
 IDIR=include
-CC=g++
+CC=clang++
 
 ODIR=obj
 SRCDIR=src
@@ -7,11 +7,11 @@ SRCDIR=src
 libmean.a: $(ODIR)/Intal.o $(ODIR)/get_time.o
 	ar rcs libintal.a $(ODIR)/Intal.o $(ODIR)/get_time.o
 
-test:	$(ODIR)/test.o $(ODIR)/Intal.o $(ODIR)/get_time.o
-		$(CC) -o test $(ODIR)/test.o $(ODIR)/Intal.o $(ODIR)/get_time.o
+main:	$(ODIR)/main.o $(ODIR)/Intal.o $(ODIR)/get_time.o
+		$(CC) -o main $(ODIR)/main.o $(ODIR)/Intal.o $(ODIR)/get_time.o
 
-$(ODIR)/test.o:	test.cpp
-	$(CC) -w -o $(ODIR)/test.o -c test.cpp
+$(ODIR)/main.o:	main.cpp
+	$(CC) -w -o $(ODIR)/main.o -c main.cpp
 
 $(ODIR)/Intal.o:	$(SRCDIR)/Intal.cpp $(IDIR)/Intal.h
 	$(CC) -w -o $(ODIR)/Intal.o -c $(SRCDIR)/Intal.cpp
@@ -22,4 +22,4 @@ $(ODIR)/get_time.o:	$(SRCDIR)/get_time.cpp $(IDIR)/get_time.h
 
 clean:
 	rm -f $(ODIR)/*.o
-	rm test
+	rm main

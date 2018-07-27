@@ -137,5 +137,6 @@ venv.bak/
 .mypy_cache/
 
 # Other
+obj/*.*
 test
 *.a
