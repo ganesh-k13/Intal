@@ -13,7 +13,9 @@ void test_add() {
 
 	Intal n1( num1);
 	Intal n2( num2);
-
+	
+	cout << (num1==num2);
+	
 	clock_gettime(CLOCK_REALTIME, &requestStart);
 
 	cout << n1 + n2 << endl;
