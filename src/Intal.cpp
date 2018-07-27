@@ -352,7 +352,7 @@ bool Intal::operator > (Intal number) {
 
 bool Intal::operator == (Intal &num2) {
 	//Reference: https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
-	return equals((*this) , num2);
+	return (bool)equals((*this) , num2);
 }
 
 ostream& operator << (ostream& os, const Intal& I) {
