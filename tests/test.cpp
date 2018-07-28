@@ -1,6 +1,7 @@
 #include "../include/Intal.h"
 
 #define CATCH_CONFIG_MAIN
+#define CATCH_CONFIG_FAST_COMPILE
 #include "catch.hpp"
 
 TEST_CASE("Testing addition operations", "[add]") {
@@ -110,6 +111,46 @@ TEST_CASE("Testing multiplication operations", "[mul]") {
 		Intal num2("99999999999999999999999999999999999999999999999999999");
 		Intal result("-9999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000001");
 		REQUIRE(((num1*num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing division operations", "[div]") {
+	
+	SECTION("Testing if simple division works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		Intal result("8");
+		REQUIRE(((num2/num1) == result));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("1");
+		// cout << num1*num2 << endl << result;
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing positive-negative test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("-1");
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("1");
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing negative-positive test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("-1");
+		REQUIRE(((num1/num2) == result));
 	}
 	
 }
