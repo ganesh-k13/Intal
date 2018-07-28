@@ -1,5 +1,7 @@
 # Big Integer Library
 
+[![Build Status](https://travis-ci.org/ganesh-k13/Intal.svg?branch=master)](https://travis-ci.org/ganesh-k13/Intal)
+
 Big Integer library written in C++ to perform basic arithmetic operations
 
 ### Prerequisites
@@ -23,7 +25,7 @@ For testing if it works, see Running tests below
 For automated tests, run:
 
 ``` 
-python tester.py
+make script
 ```
 It generates random numbers and tests if the basic operations are performed correctly
 
@@ -57,7 +59,7 @@ g++ -static main.cpp -L. -lintal -o main
 
 ## Authors
 
-* **Ganesh K.** - [DarkFate13](https://github.com/DarkFate13)
+* **Ganesh K.** - [ganesh-k13](https://github.com/ganesh-k13)
 
 ## Acknowledgments
 
