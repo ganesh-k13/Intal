@@ -33,5 +33,5 @@ clean:
 	rm -f $(ODIR)/*.o
 	rm main test
 
-test:
+script:
 	./test

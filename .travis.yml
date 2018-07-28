@@ -19,5 +19,7 @@ install:
 language: cpp
 script: 
   - make
-  - make test
+  - make script
 sudo: false
+before_install:
+  - mkdir obj
