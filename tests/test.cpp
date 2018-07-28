@@ -190,3 +190,35 @@ TEST_CASE("Testing exponent operations", "[exp]") {
 	}
 	
 }
+
+TEST_CASE("Testing relational operations", "[rel]") {
+	
+	SECTION("Testing if simple relation works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		REQUIRE(((num1 > num2) == false));
+		REQUIRE(((num1 < num2) == true));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999990");
+		REQUIRE(((num1 > num2) == true));
+		REQUIRE(((num1 < num2) == false));
+	}
+	
+	SECTION("Testing uneven length test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("999999999999999999999999999999999999");
+		REQUIRE(((num1 > num2) == true));
+		REQUIRE(((num1 < num2) == false));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999990");
+		REQUIRE(((num1 > num2) == false));
+		REQUIRE(((num1 < num2) == true));
+	}
+	
+}
