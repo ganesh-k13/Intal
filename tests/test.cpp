@@ -1,15 +1,224 @@
 #include "../include/Intal.h"
 
 #define CATCH_CONFIG_MAIN
+#define CATCH_CONFIG_FAST_COMPILE
 #include "catch.hpp"
 
-TEST_CASE("Testing available mathematical operations", "[intal]") {
-	Intal num1("123456789");
-	Intal num2("987654321");
+TEST_CASE("Testing addition operations", "[add]") {
 	
-	SECTION("Testing if addition works") {
+	SECTION("Testing if simple addition works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
 		Intal result("1111111110");
 		REQUIRE(((num1+num2) == result));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("199999999999999999999999999999999999999999999999999998");
+		REQUIRE(((num1+num2) == result));
+	}
+	
+	SECTION("Testing positive-negative test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("0");
+		REQUIRE(((num1+num2) == result));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("-199999999999999999999999999999999999999999999999999998");
+		REQUIRE(((num1+num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing subtraction operations", "[sub]") {
+	
+	SECTION("Testing if simple subtraction works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		Intal result("-864197532");
+		REQUIRE(((num1-num2) == result));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("0");
+		REQUIRE(((num1-num2) == result));
+	}
+	
+	SECTION("Testing positive-negative test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("199999999999999999999999999999999999999999999999999998");
+		REQUIRE(((num1-num2) == result));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("0");
+		REQUIRE(((num1-num2) == result));
+	}
+	
+	SECTION("Testing negative-positive test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("-199999999999999999999999999999999999999999999999999998");
+		REQUIRE(((num1-num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing multiplication operations", "[mul]") {
+	
+	SECTION("Testing if simple multiplication works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		Intal result("121932631112635269");
+		REQUIRE(((num1*num2) == result));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("9999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000001");
+		// cout << num1*num2 << endl << result;
+		REQUIRE(((num1*num2) == result));
+	}
+	
+	SECTION("Testing positive-negative test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("-9999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000001");
+		REQUIRE(((num1*num2) == result));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("9999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000001");
+		REQUIRE(((num1*num2) == result));
+	}
+	
+	SECTION("Testing negative-positive test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("-9999999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000000001");
+		REQUIRE(((num1*num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing division operations", "[div]") {
+	
+	SECTION("Testing if simple division works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		Intal result("8");
+		REQUIRE(((num2/num1) == result));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("1");
+		// cout << num1*num2 << endl << result;
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing positive-negative test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("-1");
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999999");
+		Intal result("1");
+		REQUIRE(((num1/num2) == result));
+	}
+	
+	SECTION("Testing negative-positive test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999999");
+		Intal result("-1");
+		REQUIRE(((num1/num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing exponent operations", "[exp]") {
+	
+	SECTION("Testing if simple exponent works") {
+		Intal num1("123456789");
+		Intal num2("5");
+		Intal result("28679718602997181072337614380936720482949");
+		REQUIRE(((num1^num2) == result));
+	}
+	
+	SECTION("Testing very large test-cases (positive-even/odd)") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("10");
+		Intal result("99999999999999999999999999999999999999999999999999990000000000000000000000000000000000000000000000000000449999999999999999999999999999999999999999999999999988000000000000000000000000000000000000000000000000000209999999999999999999999999999999999999999999999999997480000000000000000000000000000000000000000000000000020999999999999999999999999999999999999999999999999999880000000000000000000000000000000000000000000000000000449999999999999999999999999999999999999999999999999999000000000000000000000000000000000000000000000000000001");
+		// cout << num1*num2 << endl << result;
+		REQUIRE(((num1^num2) == result));
+	}
+	
+	#if 0 // [TODO]
+	SECTION("Testing negative-odd test-cases") {
+		Intal num1("-123456789");
+		Intal num2("5");
+		Intal result("-28679718602997181072337614380936720482949");
+		cout << (num1^num2) << endl;
+		REQUIRE(((num1^num2) == result));
+	}
+	#endif
+	
+	SECTION("Testing negative-even test-cases") {
+		Intal num1("-123456789");
+		Intal num2("6");
+		Intal result("3540705968149597751242378595390670323015412790761");
+		REQUIRE(((num1^num2) == result));
+	}
+	
+}
+
+TEST_CASE("Testing relational operations", "[rel]") {
+	
+	SECTION("Testing if simple relation works") {
+		Intal num1("123456789");
+		Intal num2("987654321");
+		REQUIRE(((num1 > num2) == false));
+		REQUIRE(((num1 < num2) == true));
+	}
+	
+	SECTION("Testing very large test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("99999999999999999999999999999999999999999999999999990");
+		REQUIRE(((num1 > num2) == true));
+		REQUIRE(((num1 < num2) == false));
+	}
+	
+	SECTION("Testing uneven length test-cases") {
+		Intal num1("99999999999999999999999999999999999999999999999999999");
+		Intal num2("999999999999999999999999999999999999");
+		REQUIRE(((num1 > num2) == true));
+		REQUIRE(((num1 < num2) == false));
+	}
+	
+	SECTION("Testing negative-negative test-cases") {
+		Intal num1("-99999999999999999999999999999999999999999999999999999");
+		Intal num2("-99999999999999999999999999999999999999999999999999990");
+		REQUIRE(((num1 > num2) == false));
+		REQUIRE(((num1 < num2) == true));
 	}
 	
 }
