@@ -19,5 +19,5 @@ install:
 language: cpp
 script: 
   - make
-  - ./test
+  - test
 sudo: false

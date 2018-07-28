@@ -32,3 +32,6 @@ $(ODIR)/get_time.o:	$(SRCDIR)/get_time.cpp $(IDIR)/get_time.h
 clean:
 	rm -f $(ODIR)/*.o
 	rm main test
+
+test:
+	./test
